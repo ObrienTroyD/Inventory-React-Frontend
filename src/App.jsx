@@ -9,6 +9,7 @@ import Supplies from './pages/Supplies'
 import Register from './components/Register'
 import Layout from './components/Layout'
 import NotFound from './components/NotFound'
+import Supply from './components/Supply'
 
 import { createContext, useEffect } from 'react'
 import { useState } from 'react'
@@ -72,10 +73,9 @@ function App() {
     }
 
     refreshToken();
-    setInterval(refreshToken, minutes*3)
+    const interval = setInterval(refreshToken, minutes*3)
 
-
-    
+    return () => clearInterval(interval);
 
     
   }, [])
@@ -89,16 +89,16 @@ function App() {
         <Routes> 
               <Route path='/Login' element={<Login />} />
               <Route path='/Register' element={<Register />} />
-              <Route path='/404' element={<NotFound />} />
-              <Route path='*' element={<NotFound />} />
-
-
+            
               <Route element={<PrivateRoutes />}>
                 <Route path='/' element={<Home />} />
                 <Route path='/Dashboard' element={<Dashboard />} />
                 <Route path='/Supplies' element={<Supplies />} />
+                <Route path='/Supplies/:id' element={<Supply />} />
               </Route>
 
+              <Route path='/404' element={<NotFound />} />
+              <Route path='*' element={<NotFound />} />
             </Routes>
         </Layout>
   

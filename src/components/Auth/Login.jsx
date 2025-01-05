@@ -2,8 +2,8 @@ import { useState, } from "react";
 import { useNavigate, Link, useLocation } from 'react-router-dom'
 
 import { useContext } from "react";
-import { LoginContext } from '../App';
-import { baseUrl } from '../endpoints';
+import { LoginContext } from "../../App";
+import { baseUrl } from "../../endpoints";
 
 
 export default function Login() {

@@ -1,8 +1,8 @@
 import { useEffect, useState,  } from "react";
 import { useNavigate, Link, useLocation } from 'react-router-dom'
 import { useContext } from "react";
-import { LoginContext } from '../App';
-import { baseUrl }from '../endpoints';
+import { LoginContext } from "../../App";
+import { baseUrl } from "../../endpoints";
 
 
 export default function Register() {
@@ -137,7 +137,7 @@ export default function Register() {
                     to={'/Login'}
                     className="font-medium text-blue-600 hover:text-blue-400 dark:text-blue-400 dark:hover:text-blue-300"
                 >
-                    Login
+                    Register
                 </Link>
             </div>
         </form>

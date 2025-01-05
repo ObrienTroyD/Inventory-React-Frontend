@@ -2,14 +2,15 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
-import Login from './components/Login'
 import Dashboard from './pages/Dashboard'
 import PrivateRoutes from './utils/PrivateRoutes'
 import Supplies from './pages/Supplies'
-import Register from './components/Register'
 import Layout from './components/Layout'
 import NotFound from './components/NotFound'
 import Supply from './components/Supply'
+
+import Login from './components/Auth/Login'
+import Register from './components/Auth/Register'
 
 import { createContext, useEffect } from 'react'
 import { useState } from 'react'
@@ -36,7 +37,7 @@ function App() {
 
   useEffect(() => {
 
-    const minutes = 1000 * 60;
+    // const minutes = 1000 * 60;
     const url = baseUrl + 'api/token/refresh/';
 
     function refreshToken() {
@@ -73,7 +74,7 @@ function App() {
     }
 
     refreshToken();
-    const interval = setInterval(refreshToken, minutes*3)
+    const interval = setInterval(refreshToken, 5000)
 
     return () => clearInterval(interval);
 

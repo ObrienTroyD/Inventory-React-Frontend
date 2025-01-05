@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
-export default function DeteleSupply() {
+export default function DeleteSupply() {
     const [open, setOpen] = useState(false);
 
     return (

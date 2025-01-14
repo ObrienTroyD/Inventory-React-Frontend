@@ -25,7 +25,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.access ? true : false);
 
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState(localStorage.username ? localStorage.username : null);
 
   function handleLoggedIn(data) {
     setIsLoggedIn(data)
@@ -37,7 +37,7 @@ function App() {
 
   useEffect(() => {
 
-    // const minutes = 1000 * 60;
+    const minutes = 1000 * 60;
     const url = baseUrl + 'api/token/refresh/';
 
     function refreshToken() {
@@ -74,7 +74,7 @@ function App() {
     }
 
     refreshToken();
-    const interval = setInterval(refreshToken, 5000)
+    const interval = setInterval(refreshToken, minutes*3)
 
     return () => clearInterval(interval);
 

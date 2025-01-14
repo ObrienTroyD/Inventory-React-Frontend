@@ -4,12 +4,13 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Pagination from "./Pagination";
 import Supply from "./Supply";
 
-import DeteleSupply from "./DeteleSupply";
 import DeleteSupply from "./DeteleSupply";
+import CreateSupply from "./CreateSupply";
 
 
 export default function SuppliesList() {
 
+    const [show, setShow] = useState(false);
     const [supplies, setSupplies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -17,7 +18,9 @@ export default function SuppliesList() {
     const [filteredData, setFilteredData] = useState(supplies)
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [suppliesPerPage] = useState(2);
+    const [suppliesPerPage] = useState(3);
+
+
 
 
 
@@ -60,6 +63,10 @@ export default function SuppliesList() {
             })
             .catch((e) => console.log(e))
     }, [])
+
+    function toggleShow() {
+        setShow(!show);
+    }
 
 
     const handleSearch = (e) => {
@@ -129,21 +136,7 @@ export default function SuppliesList() {
                         </div>
 
                         {/* New Item Button */}
-                        <button
-
-                            className="inline-flex items-center justify-center gap-2 rounded-lg border border-blue-700 bg-blue-700 px-3 py-2 text-sm font-semibold leading-5 text-white hover:border-blue-600 hover:bg-blue-600 hover:text-white focus:ring focus:ring-blue-400/50 active:border-blue-700 active:bg-blue-700 dark:focus:ring-blue-400/90"
-                        >
-                            <svg
-                                className="hi-mini hi-plus inline-block size-5 opacity-50"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                                aria-hidden="true"
-                            >
-                                <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
-                            </svg>
-                            <span>New Item</span>
-                        </button>
+                        <CreateSupply show={show} toggleShow={toggleShow} />
 
                     </div>
 
@@ -243,12 +236,11 @@ export default function SuppliesList() {
                                             </button>
                                         </div>
                                     </td>
-                                    <td className=" border py-4">
-                                        <DeleteSupply />
-
-                                        
-                                        <Supply id={supply.id} />
-
+                                    <td className=" py-4 px-6 ">
+                                        <div className="flex flex-row items-center">
+                                            <DeleteSupply />               
+                                            <Supply id={supply.id} />
+                                        </div>
                                     </td>
                                 </tr>
                             ))

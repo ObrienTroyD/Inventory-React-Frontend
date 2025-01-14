@@ -169,8 +169,8 @@ export default function Supply(props) {
                                             </h3>
 
                                             <form>
-                                                {/* Colors */}
-                                                <fieldset aria-label="Choose a color">
+                                                
+                                                {/* <fieldset aria-label="Choose a color">
                                                     <legend className="text-sm font-medium text-gray-900">Color</legend>
 
                                                     <RadioGroup
@@ -195,10 +195,10 @@ export default function Supply(props) {
                                                             </Radio>
                                                         ))}
                                                     </RadioGroup>
-                                                </fieldset>
+                                                </fieldset> */}
 
                                                 {/* Sizes */}
-                                                <fieldset aria-label="Choose a size" className="mt-10">
+                                                {/* <fieldset aria-label="Choose a size" className="mt-10">
                                                     <div className="flex items-center justify-between">
                                                         <div className="text-sm font-medium text-gray-900">Size</div>
                                                         <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
@@ -247,7 +247,7 @@ export default function Supply(props) {
                                                             </Radio>
                                                         ))}
                                                     </RadioGroup>
-                                                </fieldset>
+                                                </fieldset> */}
 
                                                 <button
                                                     type="submit"

@@ -1,11 +1,10 @@
 import { useContext } from "react"
 import { LoginContext } from "../App"
-import Image from '../comelec.png'
-
 
 import Banner from "../components/Banner";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 export default function Home() {
 
@@ -37,8 +36,8 @@ export default function Home() {
 
                             {/* Action */}
                             <div>
-                                <a
-                                    href="#"
+                                <Link
+                                    to={'/Supplies'}
                                     className="inline-flex items-center justify-center gap-2 rounded-lg border border-blue-700 bg-blue-700 px-6 py-3 font-semibold leading-6 text-white hover:border-blue-600 hover:bg-blue-600 hover:text-white focus:ring focus:ring-blue-400/50 active:border-blue-700 active:bg-blue-700 dark:focus:ring-blue-400/90"
                                 >
                                     <svg
@@ -55,7 +54,7 @@ export default function Home() {
                                         />
                                     </svg>
                                     <span>View Inventory</span>
-                                </a>
+                                </Link>
                             </div>
                             {/* END Action */}
                         </div>

@@ -51,7 +51,7 @@ export default function Pagination( { suppliesPerPage, totalSupplies, paginate }
             <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
                 <div>
                     <p className="text-sm text-gray-700">
-                        Showing <span className="font-medium">{pageNumber.length}</span> to <span className="font-medium">{pageNumber.length}</span> of{' '}
+                        Showing <span className="font-medium">{suppliesPerPage}</span> to <span className="font-medium"> {Math.min(activePage * suppliesPerPage, totalSupplies)}</span> of{' '}
                         <span className="font-medium">{totalSupplies}</span> results
                     </p>
                 </div>
@@ -74,7 +74,7 @@ export default function Pagination( { suppliesPerPage, totalSupplies, paginate }
                                     paginate(number);
                                 }}
                                 aria-current="page"
-                                className={`relative z-10 inline-flex items-center ${activePage === number ? "bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" : "bg-white px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 " }  `}
+                                className={`relative z-10 inline-flex items-center ${activePage === number ? "bg-blue-700 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700" : "bg-white px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 " }  `}
                             >
                                 {number}
                             </a>

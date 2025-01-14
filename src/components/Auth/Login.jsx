@@ -42,6 +42,7 @@ export default function Login() {
                 setUser(data.username)
                 localStorage.setItem('access', data.access);
                 localStorage.setItem('refresh', data.refresh);
+                localStorage.setItem('username', data.username);
                 navigate(location?.state?.previousUrl ? location.state.previousUrl : '/', {
                     state: {
                         previousUrl: location.pathname
